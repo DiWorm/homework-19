@@ -13,10 +13,10 @@ class IndexPage:
         return self
 
     def open_product(self, product):
-        self.product.click()
+        product.click()
         self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
 
     @property
-    def product(self):
+    def product_element(self):
         return self.driver.find_element_by_css_selector("div#box-campaigns li.product a.link")
 

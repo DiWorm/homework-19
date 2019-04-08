@@ -14,4 +14,13 @@ class Application:
     def quit(self):
         self.driver.quit()
 
+    def check_cart(self):
+        self.index_page.open()
+        self.index_page.open_product(self.index_page.product_element)
+        self.product_page.check_size()
+        self.product_page.add_to_cart()
+        self.product_page.wait_cart()
+        self.checkout_page.open()
+        self.checkout_page.delete_by_one_item(self.checkout_page.quantity_count)
+        self.quit()
 
